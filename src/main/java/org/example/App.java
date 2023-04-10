@@ -18,8 +18,13 @@ public class App {
         try {
             currentSession.beginTransaction();
 
-            Person person = currentSession.get(Person.class, 1);
-            System.out.println(person.toString());
+            Person person = new Person("Tom", 21);
+            Person person1 = new Person("John", 42);
+            Person person2 = new Person("Jack", 19);
+
+            currentSession.save(person);
+            currentSession.save(person1);
+            currentSession.save(person2);
 
             currentSession.getTransaction().commit();
         } catch (Exception e) {
