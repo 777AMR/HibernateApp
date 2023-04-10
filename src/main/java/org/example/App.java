@@ -18,15 +18,32 @@ public class App {
         try {
             currentSession.beginTransaction();
 
-            Person person = new Person("Tom", 21);
-            Person person1 = new Person("John", 42);
-            Person person2 = new Person("Jack", 19);
+//            1. Create
+//            Person person = new Person("Tom", 21);
+//            Person person1 = new Person("John", 42);
+//            Person person2 = new Person("Jack", 19);
+//
+//            currentSession.save(person);
+//            currentSession.save(person1);
+//            currentSession.save(person2);
 
+
+//            2. Update
+//            Person person = currentSession.get(Person.class, 2);
+//            person.setName("New name");
+//            currentSession.save(person);
+
+//            3. Delete
+//            Person person = currentSession.get(Person.class, 2);
+//            currentSession.delete(person);
+
+            Person person = new Person("New name", 44);
             currentSession.save(person);
-            currentSession.save(person1);
-            currentSession.save(person2);
 
             currentSession.getTransaction().commit();
+
+            System.out.println(person.getId());
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
